@@ -1,11 +1,10 @@
 import './App.css';
+import Cart from './Views/CartView/Cart'
 
 function App() {
   return (
     <>
-      <div className="rounded-lg bg-white p-2">
-        <p className="text-black">Hello world</p>
-      </div>
+    <Cart/>
     </>
   );
 }

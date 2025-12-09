@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 import { Add, Remove } from '@mui/icons-material';
-import useCartStore from '../stores/cartStore';
+import useCartStore from '@/Stores/cart-store';
 
 export default function Cart() {
   const { cartItems } = useCartStore();
