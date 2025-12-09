@@ -1,10 +1,10 @@
 import './App.css';
-import Cart from './Views/CartView/Cart'
+import Footer from './Components/footer';
 
 function App() {
   return (
     <>
-    <Cart/>
+    <Footer />
     </>
   );
 }
