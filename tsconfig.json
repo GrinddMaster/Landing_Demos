@@ -21,6 +21,7 @@
       "@/Components/*": ["Components/*"],
       "@/Views/*": ["Views/*"],
       "@/Assets/*": ["Assets/*"],
+      "@/*": ["*"]
     }
   },
   "include": ["src"]

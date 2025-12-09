@@ -4,7 +4,7 @@ import { Add, Remove } from '@mui/icons-material';
 import useCartStore from '@/Stores/cart-store';
 
 export default function Cart() {
-  const { cartItems } = useCartStore();
+  const  cartItems  = useCartStore();
   const [items, setItems] = useState(cartItems);
 
   useEffect(() => {
