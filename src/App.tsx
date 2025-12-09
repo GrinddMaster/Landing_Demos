@@ -1,16 +1,13 @@
-import './App.css'
+import './App.css';
 
 function App() {
-
   return (
     <>
-      <div className='p-2 bg-white rounded-lg'>
-        <p className='text-black'>
-          Hello world
-        </p>
+      <div className="rounded-lg bg-white p-2">
+        <p className="text-black">Hello world</p>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
