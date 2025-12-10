@@ -8,10 +8,10 @@ export default function cartView() {
       <div className="items-center">
         <h2>Vitual Mall</h2>
       </div>
-      <Cart />
       <div className="items-center">
         <TourView sdkKey={key} spaceId={Id} />
       </div>
+      <Cart />
     </section>
   );
 }
