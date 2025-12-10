@@ -5,13 +5,15 @@ export default function cartView() {
   const Id = import.meta.env.VITE_SPACE_ID;
   return (
     <section>
-      <div className="items-center">
-        <h2>Vitual Mall</h2>
+      <div className="flex items-center flex-col">
+        <h2>Virtual Mall</h2>
       </div>
       <div className="items-center">
         <TourView sdkKey={key} spaceId={Id} />
       </div>
-      <Cart />
+      <div className='flex items-center flex-col'>
+        <Cart />
+      </div>
     </section>
   );
 }
