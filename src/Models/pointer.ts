@@ -1,10 +1,11 @@
-export default async function sdkPointer(mpSdk) {
+import { CommonMpSdk } from "@matterport/sdk/sdk";
+
+export default async function sdkPointer(mpSdk:CommonMpSdk) {
   mpSdk.Pointer.intersection
     .subscribe((hit) => {
       console.log('Intersection Position:', hit.position);
       console.log('Intersection normal:', hit.normal);
     })
-    .catch(console.error);
 }
 {
   /*

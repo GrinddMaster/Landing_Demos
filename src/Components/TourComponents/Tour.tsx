@@ -3,11 +3,9 @@ import { setupSdk } from '@matterport/sdk';
 import sdkInterface from '@/sdk_interface';
 import { TourViewProps } from '@/types';
 
-//  use this import.meta.env.VARIABLE to get your .env data;
+//  use this import.meta.env.VARIABLE to get your .env data;\
 
-
-
-export default function TourViewContainer({ spaceId, sdkKey } : TourViewProps) {
+export default function TourViewContainer({ spaceId, sdkKey }: TourViewProps) {
   const iframeRef = useRef(null);
   const started = useRef(false);
   const port = import.meta.env.VITE_PORT;

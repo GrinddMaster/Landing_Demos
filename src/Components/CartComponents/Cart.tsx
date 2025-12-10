@@ -2,16 +2,17 @@ import { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 import { Add, Remove } from '@mui/icons-material';
 import useCartStore from '@/Stores/cart-store';
+import { cartItem } from '@/types';
 
 export default function Cart() {
-  const  cartItems  = useCartStore();
-  const [items, setItems] = useState(cartItems);
+  const  cartItems  = useCartStore((state)=>state.cartItems);
+  const [items, setItems] = useState<cartItem[]>([]);
 
   useEffect(() => {
     setItems(cartItems);
   }, [cartItems]);
 
-  function changeQty(id:number, delta:number) {
+  function changeQty(id:string, delta:number) {
     setItems((prev) =>
       prev.map((it) =>
         it.id === id
