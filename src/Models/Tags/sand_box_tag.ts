@@ -1,11 +1,12 @@
-import itemHtml from '../../static/Scripts/addItem';
+import itemHtml from '@/Static/HTML/addItem';
 import { addCartItem } from '../cart-model';
+import { CommonMpSdk } from '@matterport/sdk/sdk';
 
 
-async function setupSandBox(mpSdk) {
+async function setupSandBox(mpSdk : CommonMpSdk) {
   const [tagId] = await mpSdk.Tag.add({
     label: 'بطنيات',
-    Color: [1, 1, 1],
+    color: {r:1,g:1,b:1},
     description: 'تعالى اشتري أحلى بطنية من عندنا يا عامنا',
     anchorPosition: {
       x: 3.5046774605353463,

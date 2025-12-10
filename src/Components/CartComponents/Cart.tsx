@@ -11,7 +11,7 @@ export default function Cart() {
     setItems(cartItems);
   }, [cartItems]);
 
-  function changeQty(id, delta) {
+  function changeQty(id:number, delta:number) {
     setItems((prev) =>
       prev.map((it) =>
         it.id === id

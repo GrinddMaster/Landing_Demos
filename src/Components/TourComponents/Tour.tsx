@@ -1,14 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { setupSdk } from '@matterport/sdk';
 import sdkInterface from '@/sdk_interface';
+import { TourViewProps } from '@/types';
 
 //  use this import.meta.env.VARIABLE to get your .env data;
 
-export default function TourViewContainer(
-  spaceId:string,
-  sdkKey:string,
-  tourUrl:string =`https://my.matterport.com/show/?m=${spaceId}&applicationKey=${sdkKey}` ) 
-  {
+
+
+export default function TourViewContainer({ spaceId, sdkKey } : TourViewProps) {
   const iframeRef = useRef(null);
   const started = useRef(false);
   const port = import.meta.env.VITE_PORT;
@@ -17,7 +16,7 @@ export default function TourViewContainer(
     if (started.current) return;
     started.current = true;
 
-    const sdk_options:object = {
+    const sdk_options: object = {
       iframe: iframeRef.current,
       space: spaceId,
       domain: `localhost${port}`,
@@ -38,7 +37,7 @@ export default function TourViewContainer(
       ref={iframeRef}
       title="Matterport Showcase"
       style={{ width: '100%', height: '600px', border: 0 }}
-      src={tourUrl}
+      src={`https://my.matterport.com/show/?m=${spaceId}&applicationKey=${sdkKey}`}
       allow="autoplay; fullscreen; web-share; xr-spatial-tracking"
     />
   );
