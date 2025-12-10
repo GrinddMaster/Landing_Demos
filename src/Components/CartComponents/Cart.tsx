@@ -6,7 +6,7 @@ import { cartItem } from '@/types';
 
 export default function Cart() {
   const  cartItems  = useCartStore((state)=>state.cartItems);
-  const [items, setItems] = useState<cartItem[]>([]);
+  const [items, setItems] = useState<cartItem[]>(cartItems);
 
   useEffect(() => {
     setItems(cartItems);

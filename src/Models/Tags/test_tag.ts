@@ -1,5 +1,7 @@
-export default async function testTag(mpSdk : any) {
-  const tagDesc = [
+import { CommonMpSdk } from "@matterport/sdk/sdk";
+
+export default async function testTag(mpSdk : CommonMpSdk) {
+  const tagDesc = 
     {
       label: 'فرشه',
       anchorPosition: {
@@ -12,11 +14,11 @@ export default async function testTag(mpSdk : any) {
         y: 0.03193771723408253,
         z: 0.5443897557854646,
       },
-    },
-  ];
+    };
+  
 
-  mpSdk.Mattertag.add(tagDesc).then(([tagId] : [string]) => {
-    mpSdk.Mattertag.editBillboard(tagId, {
+  mpSdk.Tag.add(tagDesc).then(([tagId] : string[]) => {
+    mpSdk.Tag.editBillboard(tagId, {
       description: '[Test description link](https://www.youtube.com).',
     });
   });
