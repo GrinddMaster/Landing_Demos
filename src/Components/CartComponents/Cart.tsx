@@ -32,7 +32,7 @@ export default function Cart() {
   return (
     <div className="w-[550px] bg-amber-100 p-4 border border-slate-300 rounded-2xl shadow-md">
       
-      <h3 className="text-black text-xl font-bold text-center mb-3">Cart</h3>
+      <h3 className="text-black text-xl font-bold text-center mb-3">Shopping Cart</h3>
 
       {/* Column headings */}
       <div className="grid grid-cols-4 gap-2 mb-2 text-xs font-semibold text-slate-600 border-b pb-2">
