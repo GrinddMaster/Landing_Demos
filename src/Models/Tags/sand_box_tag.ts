@@ -1,4 +1,6 @@
 import { addReservation, setSelectedTable } from '../reservation-model';
+import { addCartItem } from '../cart-model';
+import itemHtml from '@/Static/HTML/addItem';  // ← Import your new HTML
 import { CommonMpSdk } from '@matterport/sdk/sdk';
 import reservationHtml from '@/Static/HTML/reservation';  // ← Import your new HTML
 
