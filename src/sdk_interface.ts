@@ -1,7 +1,6 @@
-import sdkPointer from './Models/pointer';
+import { CommonMpSdk } from '@matterport/sdk/sdk';
 import { setupSandBox } from './Models/Tags/sand_box_tag';
-import testTag from './Models/Tags/test_tag';
 
-export default async function sdkInterface(mpSdk) {
+export default async function sdkInterface(mpSdk:CommonMpSdk) {
   setupSandBox(mpSdk);
 }
