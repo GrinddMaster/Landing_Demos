@@ -1,33 +1,55 @@
 import { useEffect, useRef } from 'react';
 import { setupSdk } from '@matterport/sdk';
 import sdkInterface from '@/sdk_interface';
+import { iframeQueue } from './iframe-queue';
 import { TourViewProps } from '@/types';
 
-//  use this import.meta.env.VARIABLE to get your .env data;\
 
-export default function TourViewContainer({ spaceId, sdkKey }: TourViewProps) {
-  const iframeRef = useRef(null);
-  const started = useRef(false);
-  const port = import.meta.env.VITE_PORT;
+function initIframe({
+  iframe,
+  spaceId,
+  sdkKey,
+  port,
+}: {
+  iframe: HTMLIFrameElement;
+  spaceId: string;
+  sdkKey: string;
+  port: string;
+}) {
+  return async () => {
+    // 1. Wait for iframe to load
+    await new Promise<void>((resolve) => {
+      if (iframe.contentWindow) return resolve();
+      iframe.onload = () => resolve();
+    });
 
-  useEffect(() => {
-    if (started.current) return;
-    started.current = true;
-
-    const sdk_options: object = {
-      iframe: iframeRef.current,
+    // 2. Connect SDK
+    const mpSdk = await setupSdk(sdkKey, {
+      iframe,
       space: spaceId,
       domain: `localhost${port}`,
       iframeQueryParams: { qs: '1' },
-    };
+    });
 
-    setupSdk(sdkKey, sdk_options)
-      .then((mpSdk) => {
-        sdkInterface(mpSdk);
-      })
-      .catch((error) => {
-        console.error('Failed Connection:', error);
-      });
+    // 3. Initialize SDK logic (sandbox, listeners, etc.)
+    sdkInterface(mpSdk);
+  };
+}
+
+
+export default function TourViewContainer({ spaceId, sdkKey }: TourViewProps) {
+  const iframeRef = useRef(null);
+  const port = import.meta.env.VITE_PORT;
+
+  useEffect(() => {
+    if (!iframeRef.current) return;
+
+    iframeQueue.enqueue(initIframe({
+      iframe: iframeRef.current,
+      spaceId,
+      sdkKey,
+      port,
+    }));
   }, [sdkKey, spaceId, port]);
 
   return (

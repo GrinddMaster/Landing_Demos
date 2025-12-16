@@ -1,9 +1,8 @@
-import Cart from '@/Components/CartComponents/Cart';
 import Reservation from '@/Components/ReservationComponets/Reservation';
 import TourView from '@/Components/TourComponents/Tour';
 export default function cartView() {
   const key = import.meta.env.VITE_SDK_KEY;
-  const Id = import.meta.env.VITE_SPACE_ID_2;
+  const Id = import.meta.env.VITE_CAV_SPACE;
   return (
     <section>
       <div className="flex items-center flex-col">
