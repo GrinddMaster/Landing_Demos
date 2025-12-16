@@ -4,8 +4,14 @@ import reservationHtml from '@/Static/HTML/reservation';  // ← Import your new
 
 
 async function setupSandBox(mpSdk : CommonMpSdk) {
+  const [sandboxid, messenger] = await mpSdk.Tag.registerSandbox(itemHtml);
   
-
+  await mpSdk.Tag.attach('tU7wFgb78rQ', sandboxid);
+  messenger.on('addToCart', (itemData) => {
+    console.log('Received item from sandbox', itemData);
+    addCartItem(itemData);
+    messenger.send('message',{message:'hellow from', myObject:'This is an object from client'})
+  });  
 }
 
 async function reserveBox(mpSdk : CommonMpSdk) 
