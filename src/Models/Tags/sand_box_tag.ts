@@ -25,9 +25,9 @@ async function setupSandBox(mpSdk : CommonMpSdk) {
       const [table1SandboxId, table1Messenger] = await mpSdk.Tag.registerSandbox(reservationHtml);
       await mpSdk.Tag.attach(tagStates.get('table1'), table1SandboxId);
       
-      table1Messenger.send('message' );
+     
 
-      table1Messenger.on('showAvailableTimes', (data) => {
+      table1Messenger.on('showAvailableTimes', (data) => { 
         console.log('Show available times for:', data.table);
         setSelectedTable('Table 1');
         window.dispatchEvent(new CustomEvent('showReservations', { 
