@@ -250,6 +250,8 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontSize: '14px',
     marginBottom: '15px',
     boxSizing: 'border-box',
+    color: '#2d3748',
+    fontWeight: '700',
   },
   timesGrid: {
     display: 'grid',
