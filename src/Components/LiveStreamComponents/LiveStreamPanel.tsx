@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTourStore } from '../../Stores/tourStore';
-import matterportService from '../../services/matterport/matterportService';
+import matterportService from './Services/matterportService';
 import { 
   VideoOff, Monitor, ExternalLink, 
   Play, Settings, Maximize2,
